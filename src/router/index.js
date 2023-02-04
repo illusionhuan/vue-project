@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import HomeView from '../views/home/HomeView.vue'
-import login2 from '../views/login/login2.vue'
+import login from '../views/login/login.vue'
 import register from '../views/register/register.vue'
 
 Vue.use(VueRouter)
@@ -15,15 +15,15 @@ const routes = [
   },
   {
     path: '/login',
-    name: 'login2',
-    component: login2,
+    name: 'login',
+    component: login,
     meta: {
       title: '登录',
     }
   },
   {
     path: '/register',
-    name:'register2',
+    name:'register',
     component: register,
     meta: {
       title: '注册',
