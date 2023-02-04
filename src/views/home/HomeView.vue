@@ -42,6 +42,6 @@ export default {
   position:absolute;
 background-size:100% 100%;
 background-position: center;
-background-image:url("D:\\Users\\illusion\\Desktop\\WebDevelopment\\demo-login\\demo-login\\src\\assets\\12211.jpg")
+background-image:url("/src/assets/12211.jpg")
 }
 </style>

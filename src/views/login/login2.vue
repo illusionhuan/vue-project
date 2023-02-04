@@ -28,7 +28,7 @@ export default {
     },
     methods: {
         register() {
-            window.location.href='register.html';
+            this.$router.push({ path: '/register' });
         },
     //   login() {
     //       var ln = this.login_name;
