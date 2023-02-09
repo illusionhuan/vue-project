@@ -4,6 +4,8 @@ import router from './router'
 import './plugins/element.js'
 import VueParticles from 'vue-particles'
 import 'font-awesome/css/font-awesome.min.css'
+import * as echarts from 'echarts'
+Vue.prototype.$echarts=echarts
 
 Vue.use(VueParticles)
 
