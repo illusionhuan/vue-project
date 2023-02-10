@@ -47,6 +47,7 @@ export default {
             // token信息
             const token = Mock.Random.guid();
             Cookie.set('token',token);
+            this.$router.push('/home');
         },
     //   login() {
     //       var ln = this.login_name;
