@@ -25,7 +25,7 @@ export default {
         window.location.href='register.html';
       },
       login() {
-        this.$router.push('/login')
+        this.$router.push({path:'/login'})
       }
     }
 }

@@ -1,27 +1,40 @@
 <template>
-    <el-form class="login-container"  label-position="left" label-width="0px">
+    <el-form ref="loginFormRef" :inline="true" class="login-container" :model="login_Form" :rules="Rules" label-position="left" label-width="0px">
         <h3 class="login_title">
             登录界面
         </h3>
-            <el-button class="register_button" type="text" style="width:70%;" @click="register()">点此注册</el-button>
-        <el-form-item>
-            <el-input placeholder="账号" type="text" id="login_name" v-model="login_name" autocomplete="off" ></el-input>
+        <el-button class="register_button" type="text" style="width:70%;" @click="register()">点此注册</el-button>
+        <el-form-item prop="login_name">
+            <el-input placeholder="账号"  v-model="login_Form.login_name" prefix-icon="el-icon-user" autocomplete="on" clearable></el-input>
         </el-form-item>
-        <el-form-item>
-            <el-input placeholder="密码" type="password" id="login_password" v-model="login_password" autocomplete="off"></el-input>
+        <el-form-item prop="login_password">
+            <el-input placeholder="密码" type="password" v-model="login_Form.login_password" prefix-icon="el-icon-lock" autocomplete="on" show-password clearable></el-input>
         </el-form-item>
             <el-button type="primary" style="width:50%;border:none" @click="login()">登录</el-button>
     </el-form>
 </template>
 <script>
+import Mock from 'mockjs'
+import Cookie from 'js-cookie'
 export default {
-    name: "Login-Name2",
+    name: "Login-Name",
      data(){
         return{
-             formData: {},
-
-            login_name:'',
-            login_password:'',
+            formData: {},
+            login_Form: {
+                login_name:'',
+                login_password:'',
+            },
+            Rules: {
+                login_name:[
+                    { required: true, message: "用户名为必填项", trigger: 'blur'},
+                    { min: 3, max: 12, message: '长度在3到12个字符', trigger: 'blur'}
+                ],
+                login_password:[
+                    { required: true, message: "密码为必填项", trigger: 'blur'},
+                    { min: 6, max: 10, message: "密码长度在6~10个字符之间", trigger: 'blur'}
+                ]
+            }
         }
            
 
@@ -29,6 +42,11 @@ export default {
     methods: {
         register() {
             this.$router.push({ path: '/register' });
+        },
+        login() {
+            // token信息
+            const token = Mock.Random.guid();
+            Cookie.set('token',token);
         },
     //   login() {
     //       var ln = this.login_name;
