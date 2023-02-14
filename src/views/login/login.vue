@@ -8,13 +8,13 @@
         
         <el-form-item prop="username">
         
-            <el-input placeholder="账号"  v-model="login_Form.username" prefix-icon="el-icon-user" autocomplete="off" clearable></el-input>
+            <el-input placeholder="账号" style="padding-left:40px padding-right:40px" v-model="login_Form.username" prefix-icon="el-icon-user" autocomplete="off" clearable></el-input>
         
         </el-form-item>
         
         <el-form-item prop="password">
         
-            <el-input placeholder="密码" type="password" v-model="login_Form.password" prefix-icon="el-icon-lock" autocomplete="off" show-password clearable></el-input>
+            <el-input placeholder="密码" style="padding-left:40px padding-right:40px" type="password" v-model="login_Form.password" prefix-icon="el-icon-lock" autocomplete="off" show-password clearable></el-input>
         
         </el-form-item>
         
@@ -52,8 +52,11 @@ export default {
         },
         login() {
             // token信息
-            console.log('用户名:',this.login_Form.username);
-            console.log('密码:',this.login_Form.password);
+            // console.log('用户名:',this.login_Form.username);
+            // console.log('密码:',this.login_Form.password);
+            this.$axios.get("/userlist").then(res => {
+                console.log(res);
+            })
         },
         // resetLoginForm() {
         //     this.$refs.loginFormRef.resetFields();  

@@ -6,6 +6,7 @@ import VueParticles from 'vue-particles'
 import 'font-awesome/css/font-awesome.min.css'
 //引入echarts图表
 import * as echarts from 'echarts'
+import './mock'
 
 Vue.prototype.$echarts=echarts
 // 引入axios
